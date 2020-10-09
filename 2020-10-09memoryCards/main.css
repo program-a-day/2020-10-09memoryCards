@@ -74,6 +74,14 @@ footer {
     justify-content: center;
     padding: 4em;
 }
+.new-card-form {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: stretch;
+    margin: 0 auto;
+    width: 600px;
+}
 .close-form-new-card {
     font-size: 1.8rem;
     cursor: pointer;
@@ -119,7 +127,6 @@ footer {
 .card {
     transition: 1s;
     transform-style: preserve-3d;
-
 }
 .front {
     transform: rotateY(0deg);

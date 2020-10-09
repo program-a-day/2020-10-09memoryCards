@@ -8,18 +8,16 @@ let addCardButton = document.querySelector('.add-card-btn')
 let clearCards = document.querySelector('.clear-cards')
 let currentCardDisplay = document.querySelector('.current-card-display')
 let cardTotalDisplay = document.querySelector('.card-total-display')
-// let arrowRight = document.querySelector('.arrow-right')
-// let arrowLeft = document.querySelector('.arrow-left')
 let questionDisplay = document.querySelector('.current-question')
 let answerDisplay = document.querySelector('.current-answer')
 
-let flip = document.querySelector('.flip')
-let card = document.querySelector('.card')
-flip.onclick = e => card.classList.toggle('rotate')
+let currentCard = 0
 
 let cards = localStorage.getItem('cards') ?
-    JSON.parse(localStorage.getItem('cards')) : []
-let currentCard = 0
+    JSON.parse(localStorage.getItem('cards')) :
+    []
+
+
 updateDisplay()
 openFormNewCard.onclick = e => overlay.style.display = 'flex'
 closeFormNewCard.onclick = e => overlay.style.display = 'none'
@@ -29,10 +27,11 @@ clearCards.onclick = e => {
     localStorage.clear()
     updateDisplay()
 }
+
 document.querySelector('.arrows')
     .addEventListener('click', e => {
         if (e.target.classList.contains('arrow-left')) {
-            +currentCardDisplay.innerText !== 1 && currentCard--;
+            +currentCardDisplay.innerText >= 2 && currentCard--;
             console.log(currentCard)
         } else if (e.target.classList.contains('arrow-right')) {
             +currentCardDisplay.innerText < cards.length && currentCard++;
@@ -40,6 +39,7 @@ document.querySelector('.arrows')
         }
         updateDisplay()
     })
+
 function updateDisplay() {
     cardTotalDisplay.innerText = cards.length
     currentCardDisplay.innerText = currentCard + 1
@@ -48,10 +48,9 @@ function updateDisplay() {
         answerDisplay.innerText = cards[currentCard].answer
     } else {
         questionDisplay.innerText = answerDisplay.innerText = ''
+        currentCardDisplay.innerText = currentCard
     }
 }
-
-
 
 function addCard(question, answer) {
     cards.push({ 'question': question.value, 'answer': answer.value })
@@ -60,4 +59,8 @@ function addCard(question, answer) {
     localStorage.setItem('cards', JSON.stringify(cards))
     updateDisplay()
 }
-// console.log(cards)
+
+
+let flip = document.querySelector('.flip')
+let card = document.querySelector('.card')
+flip.onclick = e => card.classList.toggle('rotate')
