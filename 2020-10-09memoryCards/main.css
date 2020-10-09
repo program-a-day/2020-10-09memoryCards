@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+    padding: 1rem;
+}
+section {
+    width: 600px;
+}
+header {
+    position: relative;
+}
+h1 {
+    font-weight: 400;
+    text-align: center;
+}
+button {
+    background: #ffffff;
+    cursor: pointer;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+.open-form-new-card{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0.4em;
+}
+.card-wrapper, .card {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    font-size: 2rem;
+    
+}
+.flip {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    font-size: 1.8rem;
+    color: #aaaaaa;
+    z-index: 3;
+}
+footer {
+    text-align: center;
+}
+.arrow {
+    font-size: 1.5rem;
+    margin: 2rem;
+    cursor: pointer;
+}
+.clear-cards {
+    padding: 0.7rem 1rem;
+    
+}
+
+/* overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #eeeeee;
+    display: none;
+    flex-flow: column;
+    justify-content: center;
+    padding: 4em;
+}
+.close-form-new-card {
+    font-size: 1.8rem;
+    cursor: pointer;
+    float: right;
+}
+.overlay header {
+    text-align: center;
+}
+.overlay textarea {
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+    padding: .6em;
+    font-size: 1.3rem;
+    border-radius: .3em;
+}
+.overlay .add-card-btn {
+    align-self: center;
+    padding: .6em 1em;
+}
+.front, .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 20px rgba(99,99,99,.2);
+}
+
+/* flip logic */
+.card-wrapper {
+    perspective:  1000px;
+}
+.rotate {
+    transform: rotateY(180deg);
+}
+.front, .back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1.5rem;
+}
+.card {
+    transition: 1s;
+    transform-style: preserve-3d;
+
+}
+.front {
+    transform: rotateY(0deg);
+}
+.back {
+    transform: rotateY(180deg);
+}

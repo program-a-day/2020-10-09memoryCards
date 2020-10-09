@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Cards</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <section>
+        <header>
+            <h1>Memory Cards</h1>
+            <button class="open-form-new-card">&plus; Add New Card</button>
+        </header>
+        <div class="card-wrapper">
+            <span class="flip">&circlearrowleft; Flip</span>
+            <div class="card">
+                <div class="front">
+                    <p class="current-question"></p>
+                </div>
+                <div class="back">
+                    <p class="current-answer"></p>
+                </div>
+            </div>
+        </div>
+        <footer class="arrows">
+            <span class="arrow arrow-left">&LeftArrow;</span>
+            <span class="current-card-display">1</span>
+            /
+            <span class="card-total-display">2</span>
+            <span class="arrow arrow-right">&RightArrow;</span>
+        </footer>
+        <button class="clear-cards">Clear Cards</button>
+    </section>
+    <section class="overlay">
+        <header>
+            <span class="close-form-new-card">X</span>
+            <h1>Add New Card</h1>
+        </header>
+        <label for="question">Question</label>
+        <textarea name="" id="question" cols="" rows="3" placeholder="Enter question..."></textarea>
+        <label for="answer">Answer</label>
+        <textarea name="" id="answer" cols="30" rows="3" placeholder="Enter answer..."></textarea>
+        <button class="add-card-btn">&plus; Add Card</button>
+    </section>
+</body>
+
+</html>
